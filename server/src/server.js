@@ -10,5 +10,5 @@ app.use(express.urlencoded(
 app.use(express.json());
 const dbUrl = process.env.DB_URI || "mongodb://127.0.0.1:27017/bookstore";
 connectMongoe(dbUrl);
-app.use('/', router);
+app.use("/", router);
 export const viteNodeApp = app;
