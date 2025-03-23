@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <!-- Logo hoặc Tên Website -->
+        <a class="navbar-brand" href="#">📚 BookStore</a>
+
+        <!-- Nút Toggle trên màn hình nhỏ -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Menu -->
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Trang Chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sản Phẩm</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Liên Hệ</a>
+                </li>
+            </ul>
+
+            <!-- Thanh tìm kiếm -->
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Tìm sách..." />
+                <button class="btn btn-light" type="submit">Tìm</button>
+            </form>
+
+            <!-- Biểu tượng giỏ hàng -->
+            <a class="btn btn-outline-light ms-3 position-relative" routerLink="/cart">
+                🛒 Giỏ Hàng
+                <span class="position-absolute top-0 start-100 translate-middle badge bg-danger">
+                    3 <!-- Số sản phẩm trong giỏ -->
+                </span>
+            </a>
+        </div>
+    </div>
+</nav>
