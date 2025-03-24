@@ -1,40 +1,145 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-        <!-- Logo hoặc Tên Website -->
-        <a class="navbar-brand" href="#">📚 BookStore</a>
-
-        <!-- Nút Toggle trên màn hình nhỏ -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <!-- Menu -->
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Trang Chủ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sản Phẩm</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Liên Hệ</a>
-                </li>
-            </ul>
-
-            <!-- Thanh tìm kiếm -->
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Tìm sách..." />
-                <button class="btn btn-light" type="submit">Tìm</button>
-            </form>
-
-            <!-- Biểu tượng giỏ hàng -->
-            <a class="btn btn-outline-light ms-3 position-relative" routerLink="/cart">
-                🛒 Giỏ Hàng
-                <span class="position-absolute top-0 start-100 translate-middle badge bg-danger">
-                    3 <!-- Số sản phẩm trong giỏ -->
-                </span>
+<header class="bg-white border-bottom py-3">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between">
+        <!-- Logo -->
+        <div class="logo-left">
+            <a href="/mua-sach-online.html">
+                <img src="https://bookbuy.vn/Images/frontend/base/logo-new.png" class="img-fluid"
+                    alt="Nhà sách trực tuyến BookBuy">
             </a>
         </div>
+        <div class="dropdown ">
+            <button class="btn btn-light d-flex align-items-center bg-white " type="button" id="categoryDropdown"
+                data-bs-toggle="dropdown">
+                <i class="bi bi-list fs-4 me-2"></i><span>Danh mục</span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                <li><a class="dropdown-item" href="#">Sách - Truyện tranh</a></li>
+                <li><a class="dropdown-item" href="#">CD - DVD</a></li>
+                <li><a class="dropdown-item" href="#">Văn phòng phẩm</a></li>
+                <li><a class="dropdown-item" href="#">Đồ chơi giáo dục</a></li>
+            </ul>
+        </div>
+        <!-- Tìm kiếm -->
+        <div class="search-new-box col-md-5 d-flex">
+            <div class="input-group">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    Tất cả
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Tất cả</a></li>
+                    <li><a class="dropdown-item" href="#">Sách - Truyện tranh</a></li>
+                    <li><a class="dropdown-item" href="#">CD - DVD</a></li>
+                </ul>
+                <input type="text" class="form-control" placeholder="Bạn cần tìm gì?">
+                <button class="btn btn-primary" type="button"><i class="bi bi-search"></i></button>
+            </div>
+        </div>
+
+        <!-- Hotline -->
+        <div class="hot-line d-flex align-items-center">
+            <i class="bi bi-headset fs-4 text-primary me-2"></i>
+            <div>
+                <p class="mb-0 fw-bold">0933 109 009</p>
+                <p class="mb-0 text-muted">Hotline</p>
+            </div>
+        </div>
+
+        <!-- Giỏ hàng -->
+        <div class="cart-box-top">
+            <a href="/gio-hang.html" class="d-flex align-items-center text-decoration-none">
+                <i class="bi bi-cart fs-4 me-2"></i>
+                <span>Giỏ hàng (0)</span>
+            </a>
+        </div>
+
     </div>
-</nav>
+</header>
+<div class="search-shopping-box box bg-white py-3" *ngIf="isHomePage">
+    <div class="container d-flex">
+        <div class="main-menu" style="width: 20%; margin-right: 10px;">
+            <div class="menu-trigger">
+                <a class="thumb d-flex align-items-center p-3 border rounded shadow-sm bg-light">
+                    <i class="icon-ic_menu_24px me-2"></i>
+                    <span class="fw-bold">Danh mục sản phẩm</span>
+                    <i class="icon-ic_arrow_drop_down_24px ms-auto"></i>
+                </a>
+                <div class="menu-box border rounded shadow mt-2 p-2 bg-white">
+                    <ul class="menu list-unstyled">
+                        <li class="p-2 border-bottom">
+                            <a href="/sach.html" class="text-decoration-none d-flex align-items-center text-dark">
+                                <i class="bb-icons-menu icon-ic_book me-2"></i>
+                                <span>Sách - Truyện Tranh</span>
+                            </a>
+                        </li>
+                        <li class="p-2 border-bottom">
+                            <a href="/van-phong-pham.html"
+                                class="text-decoration-none d-flex align-items-center text-dark">
+                                <i class="bb-icons-menu icon-ic_paint-palette me-2"></i>
+                                <span>Dụng Cụ Vẽ - VPP</span>
+                            </a>
+                        </li>
+                        <li class="p-2 border-bottom">
+                            <a href="/cong-nghe.html" class="text-decoration-none d-flex align-items-center text-dark">
+                                <i class="bb-icons-menu icon-ic_mouse me-2"></i>
+                                <span>Bảng Vẽ - Phụ Kiện Số</span>
+                            </a>
+                        </li>
+                        <li class="p-2 border-bottom">
+                            <a href="/vat-dung-gia-dinh.html"
+                                class="text-decoration-none d-flex align-items-center text-dark">
+                                <i class="bb-icons-menu icon-ic_shopping-bag me-2"></i>
+                                <span>Vật Dụng - Đời Sống</span>
+                            </a>
+                        </li>
+                        <li class="p-2 border-bottom">
+                            <a href="/suc-khoe-lam-dep.html"
+                                class="text-decoration-none d-flex align-items-center text-dark">
+                                <i class="bb-icons-menu icon-ic_cosmetics me-2"></i>
+                                <span>Làm Đẹp - Sức Khỏe</span>
+                            </a>
+                        </li>
+                        <li class="p-2">
+                            <a href="/qua-tang.html" class="text-decoration-none d-flex align-items-center text-dark">
+                                <i class="bb-icons-menu icon-ic_gift me-2"></i>
+                                <span>Quà Tặng - Đồ Chơi</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="bannerCarousel" class="carousel slide shadow rounded" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://bookbuy.vn/Res/Images/Album/45e12336-6153-4e1c-8e09-89ae06b61ac3.jpg?w=880&scale=both&h=320&mode=crop"
+                        class="d-block w-100 rounded" alt="Banner 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://bookbuy.vn/Res/Images/Album/3d0f9ec9-4599-4b8d-8464-7a9fe6ffbbe1.jpg?w=880&scale=both&h=320&mode=crop"
+                        class="d-block w-100 rounded" alt="Banner 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://bookbuy.vn/Res/Images/Album/16d354af-5b85-4aaf-9051-658ea7a14dce.jpg?w=880&scale=both&h=320&mode=crop"
+                        class="d-block w-100 rounded" alt="Banner 3">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .menu-box a:hover {
+        color: #007bff !important;
+        font-weight: bold;
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var myCarousel = new bootstrap.Carousel(document.querySelector("#bannerCarousel"), {
+            interval: 10,
+            ride: "carousel"
+        });
+    });
+</script>

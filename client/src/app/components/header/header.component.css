@@ -1,0 +1,18 @@
+/* Điều chỉnh kích thước logo */
+.logo-left img {
+    max-height: 50px;
+}
+
+/* Hiển thị đẹp trên mobile */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .search-new-box,
+    .hot-line,
+    .cart-box-top {
+        margin-top: 10px;
+    }
+}
