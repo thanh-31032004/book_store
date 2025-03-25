@@ -7,6 +7,13 @@ export const routes: Routes = [
         path: '',
         component: ClientComponent,
         children: [
+            {
+
+                path: "",
+                redirectTo: "client",
+                pathMatch: "full"
+
+            },
             { path: '', component: HompageComponent },
             // { path: 'child2', component: Child2Component },
             // { path: '...', component: AnotherComponent },
