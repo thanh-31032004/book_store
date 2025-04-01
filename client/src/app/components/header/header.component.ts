@@ -1,6 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +12,11 @@ export class HeaderComponent {
   isHomePage: boolean = false;
 
   constructor(private router: Router) {
-    this.router.events.subscribe(() => {
-      this.isHomePage = this.router.url === '/' || this.router.url === '/home';
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // Kiểm tra URL để xác định trang chủ
+        this.isHomePage = this.router.url === '/';
+      }
     });
   }
 }

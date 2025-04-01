@@ -1,0 +1,15 @@
+.carousel {
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  ngx-slick-carousel .slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Khoảng cách giữa các slide */
+  }
+  
+  .card {
+    margin: 0 auto;
+  }

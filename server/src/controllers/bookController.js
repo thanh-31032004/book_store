@@ -7,8 +7,7 @@ class BooksController {
     async getAllBooks(req, res, next) {
         try {
             const books = await Book.find().populate([
-                { path: "category" },
-                { path: "promotion" }
+                { path: "category" }
             ]);
             res.status(StatusCodes.OK).json(books);
         } catch (error) {
@@ -18,10 +17,10 @@ class BooksController {
     // GET /Books/:id
     async getBookDetail(req, res, next) {
         try {
-            const Book = await Book.findById(req.params.id);
+            const getbook = await Book.findById(req.params.id);
 
-            if (!Book) throw new ApiError(404, "Book Not Found");
-            res.status(StatusCodes.OK).json(Book);
+            if (!getbook) throw new ApiError(404, "Book Not Found");
+            res.status(StatusCodes.OK).json(getbook);
         } catch (error) {
             next(error);
         }
@@ -59,8 +58,8 @@ class BooksController {
     // DELETE /Books/:id
     async deleteBook(req, res, next) {
         try {
-            const Book = await Book.findByIdAndDelete(req.params.id);
-            if (!Book) throw new ApiError(404, "Book Not Found");
+            const dlbook = await Book.findByIdAndDelete(req.params.id);
+            if (!dlbook) throw new ApiError(404, "Book Not Found");
             res.status(StatusCodes.OK).json({
                 message: "Delete Book Done",
             });

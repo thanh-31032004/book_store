@@ -11,19 +11,11 @@ const bookSchema = new Schema(
         image: { type: String, required: true, trim: true }, // URL hình ảnh sách
         category: { type: Schema.Types.ObjectId, ref: "Category", required: true }, // Thể loại sách (bắt buộc)
         stock: { type: Number, required: true, default: 0, min: 0 }, // Số lượng sách trong kho (không thể âm)
-        rating: { type: Number, default: 0, min: 0, max: 5 }, // Điểm đánh giá trung bình (0 - 5)
-        // promotion: { type: Schema.Types.ObjectId, ref: "Promotion", default: null }, // Khuyến mãi (có thể null)
-        reviews: [
-            {
-                user: { type: Schema.Types.ObjectId, ref: "User", required: true }, // Người đánh giá (bắt buộc)
-                rating: { type: Number, required: true, min: 1, max: 5 }, // Điểm đánh giá (1 - 5)
-                comment: { type: String, trim: true }, // Nhận xét
-            },
-        ],
+        rating: { type: Number, default: 0, min: 0, max: 5 },
     },
     {
-        timestamps: true, // Thêm `createdAt` và `updatedAt`
-        versionKey: false, // Ẩn __v của Mongoose
+        timestamps: true,
+        versionKey: false,
     }
 );
 

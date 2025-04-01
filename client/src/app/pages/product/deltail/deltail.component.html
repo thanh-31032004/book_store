@@ -1,0 +1,77 @@
+<div class="container mt-4">
+    <div *ngIf="product; else loading" class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a [routerLink]="['/']">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a>{{product.category.title}}</a></li>
+                <li class="breadcrumb-item active">{{product.title}}</li>
+            </ol>
+        </nav>
+        <!-- Phần hình ảnh sản phẩm -->
+        <div class="col-md-5">
+            <img [src]="product.image" [alt]="product.title" class="img-fluid rounded shadow-sm mb-3" />
+        </div>
+
+        <!-- Phần thông tin sản phẩm -->
+        <div class="col-md-7">
+
+            <h1 class="fw-bold mb-3">{{ product.title }}</h1>
+            <h6 class="text-muted mb-4">Tác giả: {{ product.author }}</h6>
+
+            <!-- Đánh giá và tồn kho -->
+            <div class="d-flex align-items-center mb-3">
+                <div class="me-4">
+                    <span class="fs-5">Đánh giá: </span>
+                    <span class="text-warning">
+                        <i class="bi bi-star-fill" *ngFor="let star of [].constructor(product.rating)"></i>
+                    </span>
+                    <span class="text-muted">({{product.rating}}/5)</span>
+                </div>
+                <div>
+                    <span class="fs-5">Tình trạng: </span>
+                    <span [class]="product.stock > 0 ? 'text-success' : 'text-danger'">
+                        {{ product.stock > 0 ? 'Còn hàng' : 'Hết hàng' }}
+                        <span *ngIf="product.stock > 0">({{product.stock}} sản phẩm)</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Giá và mô tả -->
+            <h3 class="text-danger mb-3">{{ product.price}}</h3>
+            <div class="mb-4">
+                <h5>Mô tả sản phẩm:</h5>
+                <p class="text-muted">{{ product.description }}</p>
+            </div>
+
+            <!-- Form mua hàng -->
+
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Số lượng:</label>
+                <div class="input-group w-25">
+                    <button class="btn btn-outline-secondary" type="button" (click)="decreaseQuantity()">-</button>
+                    <input id="quantity" type="number" class="form-control text-center" [(ngModel)]="quantity" [min]="1"
+                        [max]="product.stock">
+                    <button class="btn btn-outline-secondary" type="button" (click)="increaseQuantity()">+</button>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" [disabled]="product.stock === 0" (click)="addToCart()">
+                    <i class="bi bi-cart-plus me-2"></i>Thêm vào giỏ hàng
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Loading template -->
+    <ng-template #loading>
+        <div class="text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Đang tải thông tin sản phẩm...</p>
+        </div>
+    </ng-template>
+</div>
